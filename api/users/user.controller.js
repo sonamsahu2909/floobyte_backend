@@ -42,18 +42,20 @@ module.exports = {
           data: "Invalid email or password"
         });
       }
+      // console.log(results)
       const result = compareSync(body.password, results.password);
       console.log(result)
+      console.log(body.password,results.password)
       if (result) {
         results.password = undefined;
         
-        // const jsontoken = sign({ result: results }, "sonamsahu@123456789", {
-        //   expiresIn: "1h"
-        // });
+        const jsontoken = sign({ result: results }, "sonamsahu@123456789", {
+          expiresIn: "1h"
+        });
         return res.json({
           success: 1,
           message: "login successfully",
-          // token: jsontoken
+          token: jsontoken
         });
       } else {
         return res.json({
@@ -107,7 +109,7 @@ module.exports = {
           message: "Failed to update user"
         });
       }
-  
+      // console.log(results)
       // If no results were updated (e.g., user not found), return an error
       if (!results) {
         return res.status(404).json({
