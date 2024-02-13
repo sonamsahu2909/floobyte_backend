@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "build":"netlify deploy --prod",
     "start": "nodemon app.js"
   },
   "dependencies": {
