@@ -44,8 +44,8 @@ module.exports = {
       }
       // console.log(results)
       const result = compareSync(body.password, results.password);
-      console.log(result)
-      console.log(body.password,results.password)
+      // console.log(result)
+      // console.log(body.password,results.password)
       if (result) {
         results.password = undefined;
         
